@@ -1,0 +1,54 @@
+.window {
+    max-width: 900px;
+    min-width: 400px;
+    margin: 10px auto 0;
+}
+
+.title {
+    font-size: 20px;
+    color: #3aa934;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #3aa934;
+    border-bottom: none;
+}
+
+.tree {
+    padding: 5px;
+    border: 1px solid #3aa934;
+    border-bottom: none;
+}
+
+.buttonBox {
+    border: 1px solid #3aa934;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 5px 20px;
+    font-size: 20px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.button__add {
+    color: #3aa934;
+    border: 1px solid #3aa934;
+}
+
+.button__remove {
+    color: #f6250e;
+    border: 1px solid #f6250e;
+}
+
+.button__edit {
+    color: #f6b31b;
+    border: 1px solid #f6b31b;
+}
+
+.button__reset {
+    color: #f6b31b;
+    border: 1px solid #f6b31b;
+}
