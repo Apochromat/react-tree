@@ -23,7 +23,8 @@
     border: 1px solid #3aa934;
     padding: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    column-gap: 20px;
 }
 
 .button {

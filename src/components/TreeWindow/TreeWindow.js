@@ -1,6 +1,7 @@
 import styles from './TreeWindow.module.css';
 import TreeRoot from "../TreeRoot/TreeRoot";
 import {useEffect, useState} from "react";
+import {defaultTree} from "../../defaultTree";
 
 function TreeWindow() {
     const [focusedNodeId, setFocusedNodeId] = useState(-1);
@@ -16,13 +17,13 @@ function TreeWindow() {
         if (parent) {
             parent.children.push(newNode);
             setTree(treeCopy);
-        }
-        else {
+        } else {
             treeCopy.children.push(newNode);
             setTree(treeCopy);
         }
         setNodeAmount(nodeAmount + 1);
     };
+
     const handleRemoveButtonClick = () => {
         let treeCopy = {...tree};
         let parent = findParentNode(treeCopy, focusedNodeId);
@@ -31,8 +32,8 @@ function TreeWindow() {
         }
         setTree(treeCopy);
     };
+
     const handleEditButtonClick = () => {
-        debugger
         let treeCopy = {...tree};
         let node = findNodeById(treeCopy, focusedNodeId);
         if (node) {
@@ -42,11 +43,12 @@ function TreeWindow() {
         }
         setTree(treeCopy)
     };
+
     const handleResetButtonClick = () => {
-        debugger
         let treeCopy = JSON.parse(JSON.stringify(defaultTree));
         setTree(treeCopy);
     };
+
     const handleDocumentClick = (event) => {
         if (event.target.className === "App") {
             setFocusedNodeId(-1);
@@ -65,9 +67,13 @@ function TreeWindow() {
             </div>
             <div className={styles.buttonBox}>
                 <button className={`${styles.button} ${styles.button__add}`} onClick={handleAddButtonClick}>Add</button>
-                <button className={`${styles.button} ${styles.button__remove}`} onClick={handleRemoveButtonClick}>Remove</button>
-                <button className={`${styles.button} ${styles.button__edit}`} onClick={handleEditButtonClick}>Edit</button>
-                <button className={`${styles.button} ${styles.button__reset}`} onClick={handleResetButtonClick}>Reset</button>
+                <button className={`${styles.button} ${styles.button__remove}`}
+                        onClick={handleRemoveButtonClick}>Remove
+                </button>
+                <button className={`${styles.button} ${styles.button__edit}`} onClick={handleEditButtonClick}>Edit
+                </button>
+                <button className={`${styles.button} ${styles.button__reset}`} onClick={handleResetButtonClick}>Reset
+                </button>
             </div>
         </div>
     );
@@ -102,50 +108,3 @@ function findParentNode(tree, nodeId) {
     return null;
 }
 
-const defaultTree = {
-    children: [
-        {id: 0,
-            nodeName: "Node One",
-            children: [{
-                id: 1,
-                nodeName: "Node Two",
-                children: [
-                    {
-                        id: 2,
-                        nodeName: "Node Three",
-                        children: []
-                    },
-                    {
-                        id: 3,
-                        nodeName: "Node Four",
-                        children: []
-                    }]
-            }
-                ,
-                {
-                    id: 4,
-                    nodeName: "Node Five",
-                    children: [
-                        {
-                            id: 5,
-                            nodeName: "Node Six",
-                            children: [{
-                                id: 6,
-                                nodeName: "Node Seven",
-                                children: []
-                            }]
-                        },
-                        {
-                            id: 7,
-                            nodeName: "Node Eight",
-                            children: []
-                        }]
-                }
-            ]},
-        {
-            id: 8,
-            nodeName: "Node Nine",
-            children: []
-        }
-    ]
-};
