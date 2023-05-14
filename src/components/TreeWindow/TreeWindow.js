@@ -30,6 +30,7 @@ function TreeWindow() {
         if (parent) {
             parent.children = parent.children.filter(child => child.id !== focusedNodeId);
         }
+        setFocusedNodeId(-1);
         setTree(treeCopy);
     };
 
@@ -46,6 +47,7 @@ function TreeWindow() {
 
     const handleResetButtonClick = () => {
         let treeCopy = JSON.parse(JSON.stringify(defaultTree));
+        setFocusedNodeId(-1);
         setTree(treeCopy);
     };
 
@@ -67,10 +69,11 @@ function TreeWindow() {
             </div>
             <div className={styles.buttonBox}>
                 <button className={`${styles.button} ${styles.button__add}`} onClick={handleAddButtonClick}>Add</button>
-                <button className={`${styles.button} ${styles.button__remove}`}
+                <button className={`${styles.button} ${styles.button__remove} ${focusedNodeId !== -1 ? styles.active : ""}`}
                         onClick={handleRemoveButtonClick}>Remove
                 </button>
-                <button className={`${styles.button} ${styles.button__edit}`} onClick={handleEditButtonClick}>Edit
+                <button className={`${styles.button} ${styles.button__edit} ${focusedNodeId !== -1 ? styles.active : ""}`}
+                        onClick={handleEditButtonClick}>Edit
                 </button>
                 <button className={`${styles.button} ${styles.button__reset}`} onClick={handleResetButtonClick}>Reset
                 </button>

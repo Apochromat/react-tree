@@ -31,25 +31,30 @@
     padding: 5px 20px;
     font-size: 20px;
     background-color: white;
-    cursor: pointer;
+    color: #383838;
+    border: 2px solid #383838;
 }
 
 .button__add {
     color: #3aa934;
-    border: 1px solid #3aa934;
+    border: 2px solid #3aa934;
+    cursor: pointer;
 }
 
-.button__remove {
+.button__remove.active {
     color: #f6250e;
-    border: 1px solid #f6250e;
+    border: 2px solid #f6250e;
+    cursor: pointer;
 }
 
-.button__edit {
+.button__edit.active {
     color: #f6b31b;
-    border: 1px solid #f6b31b;
+    border: 2px solid #f6b31b;
+    cursor: pointer;
 }
 
 .button__reset {
     color: #f6b31b;
-    border: 1px solid #f6b31b;
+    border: 2px solid #f6b31b;
+    cursor: pointer;
 }
